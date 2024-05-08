@@ -1,9 +1,13 @@
 package com.viewnext.batchdatabase.batch.reader;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.batch.item.data.RepositoryItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Component;
 
 import com.viewnext.batchdatabase.batch.repository.TarifaRepository;
@@ -18,9 +22,13 @@ public class TarifaReader {
 	
 	@Bean(value = "readerDB")
 	public RepositoryItemReader<TarifaPL> reader() {
+		Map<String, Direction> sortMap = new HashMap<String, Direction>();
+		sortMap.put("id", Direction.ASC);
+		
 	    RepositoryItemReader<TarifaPL> reader = new RepositoryItemReader<>();
 	    reader.setRepository(tarifaRepository);
 	    reader.setMethodName("findAll");
+	    reader.setSort(sortMap);
 	    
 	    return reader;
 	  }
