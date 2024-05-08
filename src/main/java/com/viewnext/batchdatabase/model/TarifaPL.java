@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class TarifaPL {
 	
 	@Id
-	private int id;
+	private Integer id;
 	
 	private String nombreTarifa;
 	
