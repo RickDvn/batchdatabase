@@ -8,6 +8,9 @@ import org.springframework.batch.core.JobExecutionListener;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
+/**
+ * Listener de los Jobs para que cuando acaben se notifique su estado
+ */
 @Configuration
 @Component
 public class JobCompletionNotificationListener implements JobExecutionListener {
@@ -22,8 +25,18 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
 	 */
 	@Override
 	public void afterJob(JobExecution jobExecution) {
-		if(jobExecution.getStatus() == BatchStatus.COMPLETED) {
+		switch(jobExecution.getStatus()) {
+		case COMPLETED:
 			log.info("!!! JOB FINISHED! Time to verify the results");
+			break;
+		case FAILED:
+			log.info("!!! JOB Failed");
+			break;
+		case ABANDONED:
+			log.info("!!! JOB Abandoned");
+			break;
+		default:
+			break;
 		}
 	}
 }

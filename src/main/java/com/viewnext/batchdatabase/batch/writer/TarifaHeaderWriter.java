@@ -5,6 +5,9 @@ import java.io.Writer;
 
 import org.springframework.batch.item.file.FlatFileHeaderCallback;
 
+/**
+ * Clase que se encarga de escribir la cabecera de los CSV segun se especifique
+ */
 public class TarifaHeaderWriter implements FlatFileHeaderCallback {
 
 	private final String header;
