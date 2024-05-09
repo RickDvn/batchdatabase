@@ -24,7 +24,7 @@ public class TarifaWriter {
 	@Bean(value = "writerLocal")
 	public FlatFileItemWriter<TarifaPL> writerLocal() {
 		return new FlatFileItemWriterBuilder<TarifaPL>().name("tarifaItemWriter")
-				.resource(new PathResource("src/main/resources/data/local/stockTerminales.csv")).delimited().delimiter(",")
+				.resource(new PathResource("src/main/resources/data/local/tarifaTerminales.csv")).delimited().delimiter(",")
 				.names("id", "nombreTarifa", "precio")
 				.headerCallback(new TarifaHeaderWriter("id,nombreTarifa,precio"))
 				.build();
