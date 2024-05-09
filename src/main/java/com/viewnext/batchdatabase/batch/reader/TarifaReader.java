@@ -13,6 +13,9 @@ import org.springframework.stereotype.Component;
 import com.viewnext.batchdatabase.batch.repository.TarifaRepository;
 import com.viewnext.batchdatabase.model.TarifaPL;
 
+/**
+ * Clase que se encarga los distintos reader del batch
+ */
 @Configuration
 @Component
 public class TarifaReader {
@@ -20,9 +23,14 @@ public class TarifaReader {
 	@Autowired
 	private TarifaRepository tarifaRepository;
 	
+	/**
+	 * Reader que lee de la base de datos
+	 * 
+	 * @return RepositoryItemReader<TarifaPL> con las tarifas de la base de datos
+	 */
 	@Bean(value = "readerDB")
 	public RepositoryItemReader<TarifaPL> reader() {
-		Map<String, Direction> sortMap = new HashMap<String, Direction>();
+		Map<String, Direction> sortMap = new HashMap<>();
 		sortMap.put("id", Direction.ASC);
 		
 	    RepositoryItemReader<TarifaPL> reader = new RepositoryItemReader<>();

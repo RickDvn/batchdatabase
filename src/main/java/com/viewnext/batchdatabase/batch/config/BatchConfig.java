@@ -17,6 +17,9 @@ import com.viewnext.batchdatabase.batch.listener.JobCompletionNotificationListen
 import com.viewnext.batchdatabase.batch.processor.TarifaItemProcessor;
 import com.viewnext.batchdatabase.model.TarifaPL;
 
+/**
+ * La configuracion del batch con sus steps
+ */
 @Configuration
 public class BatchConfig {
 	
