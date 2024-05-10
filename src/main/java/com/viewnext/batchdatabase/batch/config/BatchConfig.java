@@ -6,6 +6,7 @@ import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.item.data.RepositoryItemReader;
+import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.FlatFileItemWriter;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -28,7 +29,6 @@ public class BatchConfig {
 		return new JobBuilder("importUserJob", jobRepository)
 				.listener(listener)
 				.start(step1)
-				//.next(step2)
 				.build();
 	}
 	
@@ -43,7 +43,7 @@ public class BatchConfig {
 	 * @return
 	 */
 	@Bean
-	public Step step1(JobRepository jobRepository, PlatformTransactionManager transactionManager, @Qualifier("readerDB") RepositoryItemReader<TarifaPL> reader,
+	public Step step1(JobRepository jobRepository, PlatformTransactionManager transactionManager, @Qualifier("readerDB") JdbcCursorItemReader<TarifaPL> reader,
 			TarifaItemProcessor processor, @Qualifier("writerLocal") FlatFileItemWriter<TarifaPL> writer) {
 		return new StepBuilder("step1", jobRepository)
 				.<TarifaPL, TarifaPL> chunk(3, transactionManager)
