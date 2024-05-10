@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
-import com.viewnext.batchdatabase.model.TarifaPL;
+import com.viewnext.batchdatabase.model.Tarifa;
 
 /**
  * Clase que se encarga los distintos reader del batch
@@ -26,20 +26,20 @@ public class TarifaReader {
 	 * @return RepositoryItemReader<TarifaPL> con las tarifas de la base de datos
 	 */
 	@Bean(value = "readerDB")
-	public JdbcCursorItemReader<TarifaPL> read(DataSource dataSource) {
-		JdbcCursorItemReader<TarifaPL> itemReader = new JdbcCursorItemReader<>();
+	public JdbcCursorItemReader<Tarifa> read(DataSource dataSource) {
+		JdbcCursorItemReader<Tarifa> itemReader = new JdbcCursorItemReader<>();
 		itemReader.setDataSource(dataSource);
 		itemReader.setSql("SELECT id, nombre_tarifa, precio from TARIFAS");
 		itemReader.setRowMapper(createRowMapper());
 		return itemReader;
 	}
 	
-	private RowMapper<TarifaPL> createRowMapper(){
-		return new RowMapper<TarifaPL>() {
+	private RowMapper<Tarifa> createRowMapper(){
+		return new RowMapper<Tarifa>() {
 			
 			@Override
-			public TarifaPL mapRow(ResultSet rs, int rowNum) throws SQLException {
-				return new TarifaPL(rs.getInt(1), rs.getString(2), rs.getFloat(3));
+			public Tarifa mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return new Tarifa(rs.getInt(1), rs.getString(2), rs.getFloat(3));
 			}
 		};
 	}

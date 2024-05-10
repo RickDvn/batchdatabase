@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import com.viewnext.batchdatabase.batch.processor.TarifaItemProcessor;
-import com.viewnext.batchdatabase.model.TarifaPL;
+import com.viewnext.batchdatabase.model.Tarifa;
 
 class TarifaItemProcessorTest {
 
@@ -13,8 +13,8 @@ class TarifaItemProcessorTest {
 	
 	@Test
 	void process() {
-		TarifaPL tarifa = new TarifaPL(123, "Tarifa1", 99.99F);
-		TarifaPL tarifaTest;
+		Tarifa tarifa = new Tarifa(123, "Tarifa1", 99.99F);
+		Tarifa tarifaTest;
 		
 		try {
 			tarifaTest = processor.process(tarifa);

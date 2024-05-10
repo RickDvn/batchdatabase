@@ -16,7 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import com.viewnext.batchdatabase.batch.listener.JobCompletionNotificationListener;
 import com.viewnext.batchdatabase.batch.processor.TarifaItemProcessor;
-import com.viewnext.batchdatabase.model.TarifaPL;
+import com.viewnext.batchdatabase.model.Tarifa;
 
 /**
  * La configuracion del batch con sus steps
@@ -43,10 +43,10 @@ public class BatchConfig {
 	 * @return
 	 */
 	@Bean
-	public Step step1(JobRepository jobRepository, PlatformTransactionManager transactionManager, @Qualifier("readerDB") JdbcCursorItemReader<TarifaPL> reader,
-			TarifaItemProcessor processor, @Qualifier("writerLocal") FlatFileItemWriter<TarifaPL> writer) {
+	public Step step1(JobRepository jobRepository, PlatformTransactionManager transactionManager, @Qualifier("readerDB") JdbcCursorItemReader<Tarifa> reader,
+			TarifaItemProcessor processor, @Qualifier("writerLocal") FlatFileItemWriter<Tarifa> writer) {
 		return new StepBuilder("step1", jobRepository)
-				.<TarifaPL, TarifaPL> chunk(3, transactionManager)
+				.<Tarifa, Tarifa> chunk(3, transactionManager)
 				.allowStartIfComplete(true)
 				.reader(reader)
 				.processor(processor)

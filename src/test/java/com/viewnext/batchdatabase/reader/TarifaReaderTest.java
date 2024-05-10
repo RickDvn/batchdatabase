@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import com.viewnext.batchdatabase.batch.reader.TarifaReader;
-import com.viewnext.batchdatabase.model.TarifaPL;
+import com.viewnext.batchdatabase.model.Tarifa;
 
 class TarifaReaderTest {
 
@@ -28,10 +28,10 @@ class TarifaReaderTest {
 	
 	@Test
 	void testReader() {
-		TarifaPL tarifa1 = new TarifaPL(11111,"Básico",9.99F);
-		TarifaPL tarifaTest;
-		List<TarifaPL> tarifasTest = new ArrayList<TarifaPL>();
-		JdbcCursorItemReader<TarifaPL> readerTest;
+		Tarifa tarifa1 = new Tarifa(11111,"Básico",9.99F);
+		Tarifa tarifaTest;
+		List<Tarifa> tarifasTest = new ArrayList<Tarifa>();
+		JdbcCursorItemReader<Tarifa> readerTest;
 		
 		dataSource = new MysqlDataSource();
 		dataSource.setUser("root");
