@@ -3,18 +3,11 @@ package com.viewnext.batchdatabase.reader;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-
-import javax.sql.DataSource;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.batch.item.ExecutionContext;
-import org.springframework.batch.item.data.RepositoryItemReader;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
-import org.springframework.batch.test.ExecutionContextTestUtils;
-import org.springframework.batch.test.context.SpringBatchTest;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import com.viewnext.batchdatabase.batch.reader.TarifaReader;

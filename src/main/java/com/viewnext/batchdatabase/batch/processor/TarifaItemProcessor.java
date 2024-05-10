@@ -15,7 +15,7 @@ public class TarifaItemProcessor implements ItemProcessor<Tarifa, Tarifa>{
 	
 	@Override
 	public Tarifa process(Tarifa item) throws Exception {
-		log.info("Processing: {}", item);
+		log.info("Processing item...");
 		
 		return item;
 	}
