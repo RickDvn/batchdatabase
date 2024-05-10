@@ -29,7 +29,7 @@ public class TarifaReader {
 	public JdbcCursorItemReader<TarifaPL> read(DataSource dataSource) {
 		JdbcCursorItemReader<TarifaPL> itemReader = new JdbcCursorItemReader<>();
 		itemReader.setDataSource(dataSource);
-		itemReader.setSql("SELECT id, nombre_tarifa, precio	 from TARIFAS");
+		itemReader.setSql("SELECT id, nombre_tarifa, precio from TARIFAS");
 		itemReader.setRowMapper(createRowMapper());
 		return itemReader;
 	}
@@ -39,7 +39,7 @@ public class TarifaReader {
 			
 			@Override
 			public TarifaPL mapRow(ResultSet rs, int rowNum) throws SQLException {
-				return new TarifaPL(rs.getInt(1), rs.getString(2), rs.getInt(3));
+				return new TarifaPL(rs.getInt(1), rs.getString(2), rs.getFloat(3));
 			}
 		};
 	}
