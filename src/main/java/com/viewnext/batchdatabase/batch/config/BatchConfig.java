@@ -6,6 +6,7 @@ import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.item.data.RepositoryItemReader;
+import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.FlatFileItemWriter;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,7 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import com.viewnext.batchdatabase.batch.listener.JobCompletionNotificationListener;
 import com.viewnext.batchdatabase.batch.processor.TarifaItemProcessor;
-import com.viewnext.batchdatabase.model.TarifaPL;
+import com.viewnext.batchdatabase.model.Tarifa;
 
 /**
  * La configuracion del batch con sus steps
@@ -28,7 +29,6 @@ public class BatchConfig {
 		return new JobBuilder("importUserJob", jobRepository)
 				.listener(listener)
 				.start(step1)
-				//.next(step2)
 				.build();
 	}
 	
@@ -43,10 +43,10 @@ public class BatchConfig {
 	 * @return
 	 */
 	@Bean
-	public Step step1(JobRepository jobRepository, PlatformTransactionManager transactionManager, @Qualifier("readerDB") RepositoryItemReader<TarifaPL> reader,
-			TarifaItemProcessor processor, @Qualifier("writerLocal") FlatFileItemWriter<TarifaPL> writer) {
+	public Step step1(JobRepository jobRepository, PlatformTransactionManager transactionManager, @Qualifier("readerDB") JdbcCursorItemReader<Tarifa> reader,
+			TarifaItemProcessor processor, @Qualifier("writerLocal") FlatFileItemWriter<Tarifa> writer) {
 		return new StepBuilder("step1", jobRepository)
-				.<TarifaPL, TarifaPL> chunk(3, transactionManager)
+				.<Tarifa, Tarifa> chunk(3, transactionManager)
 				.allowStartIfComplete(true)
 				.reader(reader)
 				.processor(processor)

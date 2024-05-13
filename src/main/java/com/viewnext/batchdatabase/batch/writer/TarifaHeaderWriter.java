@@ -12,7 +12,7 @@ public class TarifaHeaderWriter implements FlatFileHeaderCallback {
 
 	private final String header;
 
-	TarifaHeaderWriter(String header) {
+	public TarifaHeaderWriter(String header) {
         this.header = header;
     }
 

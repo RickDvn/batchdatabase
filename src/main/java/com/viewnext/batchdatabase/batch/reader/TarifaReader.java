@@ -1,17 +1,17 @@
 package com.viewnext.batchdatabase.batch.reader;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-import org.springframework.batch.item.data.RepositoryItemReader;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.sql.DataSource;
+
+import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.domain.Sort.Direction;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
-import com.viewnext.batchdatabase.batch.repository.TarifaRepository;
-import com.viewnext.batchdatabase.model.TarifaPL;
+import com.viewnext.batchdatabase.model.Tarifa;
 
 /**
  * Clase que se encarga los distintos reader del batch
@@ -20,25 +20,28 @@ import com.viewnext.batchdatabase.model.TarifaPL;
 @Component
 public class TarifaReader {
 	
-	@Autowired
-	private TarifaRepository tarifaRepository;
-	
 	/**
 	 * Reader que lee de la base de datos
 	 * 
 	 * @return RepositoryItemReader<TarifaPL> con las tarifas de la base de datos
 	 */
 	@Bean(value = "readerDB")
-	public RepositoryItemReader<TarifaPL> reader() {
-		Map<String, Direction> sortMap = new HashMap<>();
-		sortMap.put("id", Direction.ASC);
-		
-	    RepositoryItemReader<TarifaPL> reader = new RepositoryItemReader<>();
-	    reader.setRepository(tarifaRepository);
-	    reader.setMethodName("findAll");
-	    reader.setSort(sortMap);
-	    
-	    return reader;
-	  }
+	public JdbcCursorItemReader<Tarifa> read(DataSource dataSource) {
+		JdbcCursorItemReader<Tarifa> itemReader = new JdbcCursorItemReader<>();
+		itemReader.setDataSource(dataSource);
+		itemReader.setSql("SELECT id, nombre_tarifa, precio from TARIFAS");
+		itemReader.setRowMapper(createRowMapper());
+		return itemReader;
+	}
+	
+	private RowMapper<Tarifa> createRowMapper(){
+		return new RowMapper<Tarifa>() {
+			
+			@Override
+			public Tarifa mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return new Tarifa(rs.getInt(1), rs.getString(2), rs.getFloat(3));
+			}
+		};
+	}
 	
 }
