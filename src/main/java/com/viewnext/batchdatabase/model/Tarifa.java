@@ -18,4 +18,6 @@ public class Tarifa {
 	
 	private float precio;
 	
+	private Integer iva;
+	
 }

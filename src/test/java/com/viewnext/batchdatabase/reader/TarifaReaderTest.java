@@ -21,7 +21,7 @@ class TarifaReaderTest {
 	
 	@Test
 	void testReader() {
-		Tarifa tarifa1 = new Tarifa(11111,"Básico",9.99F);
+		Tarifa tarifa1 = new Tarifa(11111,"Básico",9.99F, 21);
 		Tarifa tarifaTest;
 		List<Tarifa> tarifasTest = new ArrayList<Tarifa>();
 		JdbcCursorItemReader<Tarifa> readerTest;
@@ -50,6 +50,7 @@ class TarifaReaderTest {
 		assertEquals(tarifa1.getId(), tarifasTest.get(0).getId());
 		assertEquals(tarifa1.getNombreTarifa(), tarifasTest.get(0).getNombreTarifa());
 		assertEquals(tarifa1.getPrecio(), tarifasTest.get(0).getPrecio());
+		assertEquals(tarifa1.getIva(), tarifasTest.get(0).getIva());
 	}
 
 }
