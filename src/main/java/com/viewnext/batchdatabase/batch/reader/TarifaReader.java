@@ -45,7 +45,7 @@ public class TarifaReader {
 			
 			@Override
 			public Tarifa mapRow(ResultSet rs, int rowNum) throws SQLException {
-				return new Tarifa(rs.getInt(1), rs.getString(2), rs.getFloat(3));
+				return new Tarifa(rs.getInt("id"), rs.getString("nombreTarifa"), rs.getFloat("precio"), rs.getInt("iva"));
 			}
 		};
 	}

@@ -31,8 +31,8 @@ public class TarifaWriter {
 		
 		return new FlatFileItemWriterBuilder<Tarifa>().name("tarifaItemWriter")
 				.resource(new PathResource("src/main/resources/data/local/tarifaTerminales.csv")).delimited().delimiter(",")
-				.names("id", "nombreTarifa", "precio")
-				.headerCallback(new TarifaHeaderWriter("id,nombreTarifa,precio"))
+				.names("id", "nombreTarifa", "precio", "iva")
+				.headerCallback(new TarifaHeaderWriter("id,nombreTarifa,precio,iva"))
 				.build();
 	}
 }

@@ -13,7 +13,7 @@ class TarifaItemProcessorTest {
 	
 	@Test
 	void process() {
-		Tarifa tarifa = new Tarifa(123, "Tarifa1", 99.99F);
+		Tarifa tarifa = new Tarifa(123, "Tarifa1", 99.99F, 21);
 		Tarifa tarifaTest;
 		
 		try {
@@ -23,6 +23,7 @@ class TarifaItemProcessorTest {
 			assertEquals(tarifa.getId(), tarifaTest.getId());
 			assertEquals(tarifa.getNombreTarifa(), tarifaTest.getNombreTarifa());
 			assertEquals(tarifa.getPrecio(), tarifaTest.getPrecio());
+			assertEquals(tarifa.getIva(), tarifaTest.getIva());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
