@@ -54,3 +54,17 @@ Este proyecto se estructura de la siguiente forma:
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/6361930b-a110-497e-9128-b267b87b4340)
 
+## Tests
+
+### TarifaWriterTest: Tests de TarifaWriter
+
+![image](https://github.com/RickDvn/batchdatabase/assets/168721035/907131a6-27cd-4b7e-b626-7bc15b848d2c)
+
+### TarifaReaderTest: Tests de TarifaReader
+
+![image](https://github.com/RickDvn/batchdatabase/assets/168721035/10821f03-8562-43d7-8e16-89c78a132101)
+
+
+### TarifaItemProcessorTest: Tests de TarifaItemProcessor
+
+![image](https://github.com/RickDvn/batchdatabase/assets/168721035/9100d4ea-44bf-47f9-bf42-8c6fe3e772e7)
