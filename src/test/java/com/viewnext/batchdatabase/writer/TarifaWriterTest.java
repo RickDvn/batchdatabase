@@ -35,13 +35,12 @@ class TarifaWriterTest {
 
 		linesMock[0] = test1.getId() + "," + test1.getNombreTarifa() + "," + test1.getPrecio();
 		linesMock[1] = test2.getId() + "," + test2.getNombreTarifa() + "," + test2.getPrecio();
-		linesMock[2] = test2.getId() + "," + test3.getNombreTarifa() + "," + test3.getPrecio();
+		linesMock[2] = test3.getId() + "," + test3.getNombreTarifa() + "," + test3.getPrecio();
 
 		writerTest.setResource(new PathResource("src/test/java/data/local/testTarifas.csv"));
 		try {
-			linesTest = writerTest.doWrite(new Chunk<Tarifa>(items)).replace("\r", "").split("\n"); // Se quito el caracter de tipado "/r" y separo el otro "\n"
+			linesTest = writerTest.doWrite(new Chunk<Tarifa>(items)).replace("\r", "").split("\n"); // Quito el caracter de tipado "\r" y separo por el otro "\n"
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			fail("Exception catched");
 		}
@@ -49,6 +48,8 @@ class TarifaWriterTest {
 		assertNotNull(writerTest);
 		assertNotNull(linesTest);
 		assertEquals(linesMock[0], linesTest[0]);
+		assertEquals(linesMock[1], linesTest[1]);
+		assertEquals(linesMock[2], linesTest[2]);
 	}
 
 }
