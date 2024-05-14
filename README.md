@@ -57,11 +57,18 @@ El método de procesado en este procesador solo devuelve el mismo objeto que le 
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/323476cc-bdc6-455e-847b-9bb2c9834d00)
 
+Aquí están todos los writers del modelo **Tarifa**
+
+##### writerLocal
+
+Bean que crea y devuelve un nuevo **FlatFileItemWriter<Tarifa>**, se le ponen: el recurso node tiene que escribir, el delimitador, los nombres de las columnas 
+y el header del CSV
 
 ### TarifaHeaderWriter: Clase personalizada de FlatFileHeaderCallback para escribir una cabecera personalizada en los CSV
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/59268bd5-81d8-4268-a1c1-6320a1625614)
 
+Clase que implementa el FlatFileHeaderCallback y sobreescribe el método writeHeader para escribir una cabecera propia
 
 ## listener: Que contiene los listeners que escuchan los Jobs del batch
 
