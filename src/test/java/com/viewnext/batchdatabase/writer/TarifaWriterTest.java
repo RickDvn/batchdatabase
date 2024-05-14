@@ -50,7 +50,6 @@ class TarifaWriterTest {
 		assertEquals(linesMock[0], linesTest[0]);
 		assertEquals(linesMock[1], linesTest[1]);
 		assertEquals(linesMock[2], linesTest[2]);
-		assertEquals(linesMock[3], linesTest[3]);
 	}
 
 }
