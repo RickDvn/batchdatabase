@@ -104,6 +104,12 @@ Este Bean define el primer step, asignándole su chunk, reader, writer y proceso
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/10821f03-8562-43d7-8e16-89c78a132101)
 
+Fuera de los tests me declaro un datasource para poder configurarlo en los tests.
+
+Me declaro un objeto de prueba igual al de la base de datos, un objeto auxiliar, una lista para guardar el resultado y el cursor **JDBC**. 
+Configuro el **datasource** para que s epueda conectar a la base de datos y obtengo los datos, guardándolos en la lista antes declarada ayunándome con el objeto auxiliar. 
+Una vez realizado el proceso de obtener los datos, compruebo que la lista no esté vacia y que los atributos de la tarifa sean iguales a los del objeto de prueba.
+
 ### TarifaItemProcessorTest: Tests de TarifaItemProcessor
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/9100d4ea-44bf-47f9-bf42-8c6fe3e772e7)
