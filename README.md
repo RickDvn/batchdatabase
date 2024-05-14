@@ -68,7 +68,7 @@ y el header del CSV
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/59268bd5-81d8-4268-a1c1-6320a1625614)
 
-Clase que implementa el FlatFileHeaderCallback y sobreescribe el método writeHeader para escribir una cabecera propia
+Clase que implementa el **FlatFileHeaderCallback** y sobreescribe el método writeHeader para escribir una cabecera propia
 
 ## listener: Que contiene los listeners que escuchan los Jobs del batch
 
@@ -76,12 +76,23 @@ Clase que implementa el FlatFileHeaderCallback y sobreescribe el método writeHe
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/8e6479b2-a63c-4ac0-a04e-0f9335e6b841)
 
+Clase que se encarga de logear si el Job se ha completado o no exitosamente
 
 ## config: En donde está la configuración del batch
 
 ### BatchConfig: Clase de configuración del batch
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/6361930b-a110-497e-9128-b267b87b4340)
+
+Clase en la que se encuentra la configuración del Batch, definiendo el tanto el Job como sus Step
+
+##### importUserJob
+
+Este Bean define el comportamiento del Job y le asigna el listener y los steps
+
+##### step1
+
+Este Bean define el primer step, asignándole su chunk, reader, writer y procesor
 
 ## Tests
 
