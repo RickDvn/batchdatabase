@@ -10,11 +10,24 @@ Este proyecto se estructura de la siguiente forma:
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/6b8a2ffc-9188-47d8-8764-c3a33241ac74)
 
+En este modelo se guardan todos los datos de las tarifas
+
 ## reader: El paquete donde se encuentran los distintos readers del batch
 
 ### TarifaReader: Clase que maneja los readers de Terminales
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/0c7aa9e2-84a5-4a8d-b118-bbbb711c44bc)
+
+Aquí es donde se encuantran todos los readers del modelo **Tarifa**:
+
+##### read
+
+Es el Bean que se encarga de leer de la base de datos, utiliza el Datasource por defecto con las propiedades definidas en el aplication.properties. 
+Tiene una consulta puesta, la cual es traerse el id, nombre_tarifa, precio e iva de la tabla TARIFAS
+
+##### createRowMapper
+
+Es un método privado que crea el **RowMapper** pare el JdbcCursorItemReader, creando un objeto Tarifa con los datos del **ResultSet** y devolviendolo
 
 ## processor: Paquete que contiene los processors del batch
 
@@ -22,10 +35,21 @@ Este proyecto se estructura de la siguiente forma:
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/b204cbb9-24d2-407e-960d-430590d738e8)
 
+Clase que contiene los distintos processsors del modelo **Tarifa**
+
+##### itemProcessor
+
+Este Bean lo que hace es devolver un nuevo **TarifaItemProcessor**
+
 ### TarifaItemProcessor: Procesador de Terminales que devuelve el objeto sin modificar
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/470aa649-26b6-4fa1-9437-00484cd61303)
 
+Este es un precessor del modelo **Tarifa**
+
+##### process
+
+El método de procesado en este procesador solo devuelve el mismo objeto que le ha llegado, sin ningún tipo de modificación ni Skip Policy
 
 ## writer: El paquete donde están los writers de este batch
 
