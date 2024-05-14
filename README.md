@@ -100,6 +100,15 @@ Este Bean define el primer step, asignándole su chunk, reader, writer y proceso
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/907131a6-27cd-4b7e-b626-7bc15b848d2c)
 
+Primero me creo: Una lista de Tarifas para poder realizar las pruebas, un **FlatFileItemWriter** para guardar el resultado de **writerLocal**, 
+dos arrays de **String**, uno con objetos de prueba y otro para guardar el resultado y, por último, tres objetos de prueba que posteriormente añado a la lista.
+
+LLeno el array de String de prueba con los atributos de los tres objetos de prueba aplicándoles el formato del CSV.
+
+Después de preparar los objetos de prueba, hago el **doWrite** del writer y lo segmento en distintos strings según los caracteres de tipado.
+
+Una vez terminados esos procesos compruebo que: el array de String para guardar el resultado no sea nulo, y que los dos arrays coincidan en todas sus celdas
+
 ### TarifaReaderTest: Tests de TarifaReader
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/10821f03-8562-43d7-8e16-89c78a132101)
@@ -113,3 +122,6 @@ Una vez realizado el proceso de obtener los datos, compruebo que la lista no est
 ### TarifaItemProcessorTest: Tests de TarifaItemProcessor
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/9100d4ea-44bf-47f9-bf42-8c6fe3e772e7)
+
+Me creo un objeto de prueba y otro para recoger el resultado, proceso el objeto de prueba con el procesador y compruebo que el resultado 
+no sea nulo y que sus atributos sean iguales a los de el objeto de prueba
