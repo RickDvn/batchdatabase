@@ -8,15 +8,13 @@ Este proyecto se estructura de la siguiente forma:
 
 ### Tarifa: El modelo de Tarifa
 
-![image](https://github.com/RickDvn/batchdatabase/assets/168721035/3f0bd0f5-d08a-4c3f-b53b-5d580956418d)
-
+![image](https://github.com/RickDvn/batchdatabase/assets/168721035/6b8a2ffc-9188-47d8-8764-c3a33241ac74)
 
 ## reader: El paquete donde se encuentran los distintos readers del batch
 
 ### TarifaReader: Clase que maneja los readers de Terminales
 
-![image](https://github.com/RickDvn/batchdatabase/assets/168721035/467a8887-e45c-4b38-84c8-f4defc57ecef)
-
+![image](https://github.com/RickDvn/batchdatabase/assets/168721035/0c7aa9e2-84a5-4a8d-b118-bbbb711c44bc)
 
 ## processor: Paquete que contiene los processors del batch
 
