@@ -109,6 +109,9 @@ Después de preparar los objetos de prueba, hago el **doWrite** del writer y lo 
 
 Una vez terminados esos procesos compruebo que: el array de String para guardar el resultado no sea nulo, y que los dos arrays coincidan en todas sus celdas
 
+![image](https://github.com/RickDvn/batchdatabase/assets/168721035/9a4352b5-dd51-429a-a498-bbea7f6c6593)
+
+
 ### TarifaReaderTest: Tests de TarifaReader
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/10821f03-8562-43d7-8e16-89c78a132101)
@@ -119,9 +122,14 @@ Me declaro un objeto de prueba igual al de la base de datos, un objeto auxiliar,
 Configuro el **datasource** para que s epueda conectar a la base de datos y obtengo los datos, guardándolos en la lista antes declarada ayunándome con el objeto auxiliar. 
 Una vez realizado el proceso de obtener los datos, compruebo que la lista no esté vacia y que los atributos de la tarifa sean iguales a los del objeto de prueba.
 
+![image](https://github.com/RickDvn/batchdatabase/assets/168721035/9396630f-a37c-4fe8-a4b6-61de3468fa7f)
+
+
 ### TarifaItemProcessorTest: Tests de TarifaItemProcessor
 
 ![image](https://github.com/RickDvn/batchdatabase/assets/168721035/9100d4ea-44bf-47f9-bf42-8c6fe3e772e7)
 
 Me creo un objeto de prueba y otro para recoger el resultado, proceso el objeto de prueba con el procesador y compruebo que el resultado 
 no sea nulo y que sus atributos sean iguales a los de el objeto de prueba
+
+![image](https://github.com/RickDvn/batchdatabase/assets/168721035/945b95fe-6cb3-4bd3-8af9-0adf674a601d)
